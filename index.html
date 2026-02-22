@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espresso Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Espresso Tracker</h1>
+  </header>
+
+  <main>
+
+    <section class="panel">
+      <h2>Log a Shot</h2>
+      <form id="shot-form">
+
+        <div class="form-grid">
+          <div class="field span-2">
+            <label for="datetime">Date &amp; Time</label>
+            <input type="datetime-local" id="datetime" required>
+          </div>
+          <div class="field span-2">
+            <label for="blend">Espresso Blend</label>
+            <input type="text" id="blend" placeholder="e.g. Monmouth Espresso" required>
+          </div>
+          <div class="field">
+            <label for="grind">Grind Setting</label>
+            <input type="text" id="grind" placeholder="e.g. 15" required>
+          </div>
+          <div class="field">
+            <label for="dose">Dose (g)</label>
+            <input type="number" id="dose" step="0.1" min="0" placeholder="18.0" required>
+          </div>
+          <div class="field">
+            <label for="yield-g">Yield (g)</label>
+            <input type="number" id="yield-g" step="0.1" min="0" placeholder="36.0" required>
+          </div>
+          <div class="field">
+            <label for="extime">Extraction Time (s)</label>
+            <input type="number" id="extime" min="0" placeholder="27" required>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <p class="section-label">Flavour Profile</p>
+
+        <div class="sliders">
+          <div class="slider-field">
+            <div class="slider-header">
+              <span class="slider-name">Acidity</span>
+              <span class="slider-val" id="acidity-display">3</span>
+            </div>
+            <input type="range" id="acidity" min="1" max="5" value="3">
+            <div class="slider-ends"><span>Flat</span><span>Bright</span></div>
+          </div>
+          <div class="slider-field">
+            <div class="slider-header">
+              <span class="slider-name">Sweetness</span>
+              <span class="slider-val" id="sweetness-display">3</span>
+            </div>
+            <input type="range" id="sweetness" min="1" max="5" value="3">
+            <div class="slider-ends"><span>None</span><span>Very sweet</span></div>
+          </div>
+          <div class="slider-field">
+            <div class="slider-header">
+              <span class="slider-name">Bitterness</span>
+              <span class="slider-val" id="bitterness-display">3</span>
+            </div>
+            <input type="range" id="bitterness" min="1" max="5" value="3">
+            <div class="slider-ends"><span>None</span><span>Harsh</span></div>
+          </div>
+          <div class="slider-field">
+            <div class="slider-header">
+              <span class="slider-name">Body</span>
+              <span class="slider-val" id="body-display">3</span>
+            </div>
+            <input type="range" id="body" min="1" max="5" value="3">
+            <div class="slider-ends"><span>Thin</span><span>Heavy</span></div>
+          </div>
+        </div>
+
+        <div class="field notes-field">
+          <label for="notes">Notes <span class="optional">(optional)</span></label>
+          <textarea id="notes" placeholder="Any observations about this shot…"></textarea>
+        </div>
+
+        <button type="submit" class="save-btn">Save Shot</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Shot History</h2>
+      <div id="shot-list"></div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
